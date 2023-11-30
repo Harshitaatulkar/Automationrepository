@@ -12,7 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
 public class BluestoneAssignment {
-         public static void main(String[] args) throws AWTException {
+         public static void main(String[] args) throws AWTException, InterruptedException {
           WebDriver    driver	= new ChromeDriver();
         	 driver.manage().window().maximize();
      	    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
@@ -25,12 +25,33 @@ public class BluestoneAssignment {
      	 Actions act = new Actions(driver);
      	 act.moveToElement(jewellery).perform();
      	 //click on band
-     	 driver.findElement(By.xpath("//a[text()='Band']"));
-     	 driver.findElement(By.xpath("//span[text()='FILTERED BY']"));
-     	
-     	Robot robot = new Robot();
-     	robot.keyPress(KeyEvent.VK_CONTROL);
-     	robot.keyPress(KeyEvent.VK_COPY);
+     	 driver.findElement(By.xpath("//a[text()='Band']")).click();
+     	 WebElement filterby = driver.findElement(By.xpath("//span[text()='FILTERED BY']"));
+     	 for(int i=0;i<=2;i++)
+     	 {
+     		 act.doubleClick(filterby).perform();
+     		 Thread.sleep(2000);
+     		 act.clickAndHold(filterby).perform();
+         }
+     	 Robot robot = new Robot();
+     	 robot.keyPress(KeyEvent.VK_CONTROL);
+     	 robot.keyPress(KeyEvent.VK_C);
+     	 robot.keyRelease(KeyEvent.VK_CONTROL);
+     	 robot.keyPress(KeyEvent.VK_C);
+     	 
+     	 driver.findElement(By.id("search_query_top_elastic_search")).click();
+     	  //paste it on search 
+     	Thread.sleep(2000);
+     	 robot.keyPress(KeyEvent.VK_CONTROL);
+     	 robot.keyPress(KeyEvent.VK_V);
+     	Thread.sleep(2000);
+     	 robot.keyRelease(KeyEvent.VK_CONTROL);
+     	 robot.keyRelease(KeyEvent.VK_V);
+     	Thread.sleep(2000);
+     	  
+     	 //click on search button
+     	 driver.findElement(By.xpath("//input[@type='submit']")).submit();
+     	 
      	
      	    
      	    

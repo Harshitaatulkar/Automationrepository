@@ -29,6 +29,11 @@ public class GetoptionsMethod {
 						    	     System.out.println(opt);
 						      }
 						      //we read list by using for each loop
+						      for(WebElement op:allOps)
+						      {
+						    	  String opt1 = op.getText();
+						    	  System.out.println(opt1);
+						      }
 						      
 					}
 

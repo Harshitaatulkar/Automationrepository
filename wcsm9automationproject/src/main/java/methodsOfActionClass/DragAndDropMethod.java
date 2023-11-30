@@ -16,7 +16,7 @@ public class DragAndDropMethod {
 		    //launch the demoapp
 		    driver.get("https://demoapps.qspiders.com/");
 		    //click on drag and drop
-		    driver.findElement(By.xpath("//section[text()='Drag And Drop']")).click();
+		    driver.findElement(By.xpath("//section[text()='Mouse Actions']")).click();
 		    driver.findElement(By.xpath("//section[text()='Drag & Drop']")).click();
 		    //store all the drag elements
 		  WebElement src1 = driver.findElement(By.xpath("//div[text()='Mobile Charger']"));
